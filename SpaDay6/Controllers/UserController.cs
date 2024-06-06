@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,26 +31,14 @@ namespace SpaDay6.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*BONUS SOLUTION:
-                If students code the bonus mission, they will not need the internal if/else block
-                instead, they will instantiate a new user object, and return the View("Index", newUser)
-                */
-                if (addUserViewModel.Password == addUserViewModel.VerifyPassword)
+                User user = new User
                 {
-                    User user = new User
-                    {
-                        Username = addUserViewModel.Username,
-                        Password = addUserViewModel.Password,
-                        Email = addUserViewModel.Email
-                    };
+                    Username = addUserViewModel.Username,
+                    Password = addUserViewModel.Password,
+                    Email = addUserViewModel.Email
+                };
 
-                    return View("Index", user);
-                }
-                else
-                {
-                    ViewBag.error = "Passwords don't match!";
-                    return View("Add", addUserViewModel);
-                }
+                return View("Index", user);
             }
 
             return View("Add", addUserViewModel);
