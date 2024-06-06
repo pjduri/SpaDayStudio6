@@ -5,7 +5,7 @@ namespace SpaDay6.Models
 	{
         public string SkinType { get; set; }
         public string NailService { get; set; }
-        private List<string> appropriateFacials = new List<string>();
+        private List<string> appropriateFacials = new();
 
         public Client(string skinType, string nailService)
         {
@@ -66,7 +66,7 @@ namespace SpaDay6.Models
 
         public void SetFacials(String skinType)
         {
-            List<String> facials = new List<String>();
+            List<String> facials = new();
             facials.Add("Microdermabrasion");
             facials.Add("Hydrofacial");
             facials.Add("Rejuvenating");

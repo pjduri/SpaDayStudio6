@@ -21,7 +21,7 @@ namespace SpaDay6.Controllers
         [Route("/spa")]
         public IActionResult Menu(string skintype, string manipedi)
         {
-            Client newClient = new Client(skintype, manipedi);
+            Client newClient = new(skintype, manipedi);
             newClient.SetFacials(newClient.SkinType);
             ViewBag.client = newClient;
             return View();
